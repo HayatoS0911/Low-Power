@@ -101,122 +101,122 @@ int main(void)
 	  		  }
 	  		  break;
 	  	  case 1: // LPRun
-	  		  HAL_SuspendTick();													// Stop Systick timer
+	  		  HAL_SuspendTick();							// Stop Systick timer
 
-	  		  SystemClock_Config_UseMSI();											// Use System Clock MSI
-	  		  HAL_PWREx_EnableLowPowerRunMode();									// Enter Low Power Run
-	  		  HAL_Delay(3000);														// Wait 3000ms
-	  		  HAL_PWREx_DisableLowPowerRunMode();									// Disable Low Power Run
-	  		  SystemClock_Config();													// Use Sysmtem Clock HSI
+	  		  SystemClock_Config_UseMSI();						// Use System Clock MSI
+	  		  HAL_PWREx_EnableLowPowerRunMode();					// Enter Low Power Run
+	  		  HAL_Delay(3000);							// Wait 3000ms
+	  		  HAL_PWREx_DisableLowPowerRunMode();					// Disable Low Power Run
+	  		  SystemClock_Config();							// Use Sysmtem Clock HSI
 
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);				// LD2 ON
-	  		  HAL_ResumeTick();														// Resume Systick timer
-	  		  HAL_Delay(1000);														// Wait 1000ms
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);			// LD2 OFF
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);		// LD2 ON
+	  		  HAL_ResumeTick();							// Resume Systick timer
+	  		  HAL_Delay(1000);							// Wait 1000ms
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
 	  		  break;
 	  	  case 2: // HAL_Delay
 	  		  while(1)
 	  		  {
-	  			  HAL_Delay(10000);													// Wait 10000ms
+	  			  HAL_Delay(10000);						// Wait 10000ms
 	  		  }
 	  		  break;
 	  	  case 3: // Sleep
-	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);								// Disable Wakeup Timer
+	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);				// Disable Wakeup Timer
 	  		  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  		  HAL_SuspendTick();													// Stop Systick timer
+	  		  HAL_SuspendTick();							// Stop Systick timer
 
-	  		  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON,PWR_SLEEPENTRY_WFE);		// Enter Sleep Mode, WakeUpEvent WFE
+	  		  HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON,PWR_SLEEPENTRY_WFE);	// Enter Sleep Mode, WakeUpEvent WFE
 
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);				// LD2 ON
-	  		  HAL_ResumeTick();														// Resume Systick timer
-	  		  HAL_Delay(1000);														// Wait 1000ms
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);			// LD2 OFF
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);		// LD2 ON
+	  		  HAL_ResumeTick();							// Resume Systick timer
+	  		  HAL_Delay(1000);							// Wait 1000ms
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
 	  		  break;
 	  	  case 4: // LPSleep
-	  		  SystemClock_Config_UseMSI();											// Use System Clock MSI
-	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);								// Disable Wakeup Timer
+	  		  SystemClock_Config_UseMSI();						// Use System Clock MSI
+	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);				// Disable Wakeup Timer
 	  		  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  		  HAL_SuspendTick();													// Stop Systick timer
+	  		  HAL_SuspendTick();							// Stop Systick timer
 
 	  		  HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON,PWR_SLEEPENTRY_WFE);	// Enter Low Power Sleep Mode, WakeUpEvent WFE
-	  		  HAL_PWREx_DisableLowPowerRunMode();										// Disable Low Power Run
-	  		  SystemClock_Config();													// Use Sysmtem Clock HSI
+	  		  HAL_PWREx_DisableLowPowerRunMode();					// Disable Low Power Run
+	  		  SystemClock_Config();							// Use Sysmtem Clock HSI
 
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);				// LD2 ON
-	  		  HAL_ResumeTick();														// Resume Systick timer
-	  		  HAL_Delay(1000);														// Wait 1000ms
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);			// LD2 OFF
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);		// LD2 ON
+	  		  HAL_ResumeTick();							// Resume Systick timer
+	  		  HAL_Delay(1000);							// Wait 1000ms
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
 	  		  break;
 	  	  case 5: // Stop0
-	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);								// Disable Wakeup Timer
+	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);				// Disable Wakeup Timer
 	  		  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  		  HAL_SuspendTick();													// Stop Systick timer
+	  		  HAL_SuspendTick();							// Stop Systick timer
 
-	  		  HAL_PWR_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_STOPENTRY_WFE);		// Enter Stop0 Mode, Wake Up Event
-	  		  HAL_PWREx_DisableLowPowerRunMode();									// Disable Low Power Run
-	  		  SystemClock_Config();													// Use Sysmtem Clock HSI
+	  		  HAL_PWR_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_STOPENTRY_WFE);	// Enter Stop0 Mode, Wake Up Event
+	  		  HAL_PWREx_DisableLowPowerRunMode();					// Disable Low Power Run
+	  		  SystemClock_Config();							// Use Sysmtem Clock HSI
 
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);				// LD2 ON
-	  		  HAL_ResumeTick();														// Resume Systick timer
-	  		  HAL_Delay(1000);														// Wait 1000ms
-			  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);			// LD2 OFF
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);		// LD2 ON
+	  		  HAL_ResumeTick();							// Resume Systick timer
+	  		  HAL_Delay(1000);							// Wait 1000ms
+			  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
 			  break;
 	  	  case 6: // stop1
-	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);								// Disable Wakeup Timer
+	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);				// Disable Wakeup Timer
 	  		  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  		  HAL_SuspendTick();													// Stop Systick timer
+	  		  HAL_SuspendTick();							// Stop Systick timer
 
 	  		  HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFE);	// Enter Stop1 Mode, Wake Up Event
-	  		  HAL_PWREx_DisableLowPowerRunMode();									// Disable Low Power Run
-	  		  SystemClock_Config();													// Use Sysmtem Clock HSI
+	  		  HAL_PWREx_DisableLowPowerRunMode();					// Disable Low Power Run
+	  		  SystemClock_Config();							// Use Sysmtem Clock HSI
 
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);				// LD2 ON
-	  		  HAL_ResumeTick();														// Resume Systick timer
-	  		  HAL_Delay(1000);														// Wait 1000ms
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);			// LD2 OFF
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);		// LD2 ON
+	  		  HAL_ResumeTick();							// Resume Systick timer
+	  		  HAL_Delay(1000);							// Wait 1000ms
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
 	  		  break;
 	  	  case 7: // stop2
-	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);								// Disable Wakeup Timer
+	  		  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);				// Disable Wakeup Timer
 	  		  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  		  HAL_SuspendTick();													// Stop Systick timer
+	  		  HAL_SuspendTick();							// Stop Systick timer
 
-	  		  HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFE);							// Enter Stop2 Mode, Wake Up Event
-	  		  HAL_PWREx_DisableLowPowerRunMode();									// Disable Low Power Run
-	  		  SystemClock_Config();													// Use Sysmtem Clock HSI
+	  		  HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFE);				// Enter Stop2 Mode, Wake Up Event
+	  		  HAL_PWREx_DisableLowPowerRunMode();					// Disable Low Power Run
+	  		  SystemClock_Config();							// Use Sysmtem Clock HSI
 
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);				// LD2 ON
-	  		  HAL_ResumeTick();														// Resume Systick timer
-	  		  HAL_Delay(1000);														// Wait 1000ms
-	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);			// LD2 OFF
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);		// LD2 ON
+	  		  HAL_ResumeTick();							// Resume Systick timer
+	  		  HAL_Delay(1000);							// Wait 1000ms
+	  		  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
 	  		  break;
 	  	  case 8:	// Stanby Mode
 	  		  // Check if the SB flag is set
 	  		  if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
 	  		  {
-	  			  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);								// Clear Stanby Flag
+	  			  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);				// Clear Stanby Flag
 
 	  			  for(int i = 0; i < 5;i++)
 	  			  {
-	  				  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);					// Toggle LD2
-	  				  HAL_Delay(100);												// Wait 100ms
+	  				  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);		// Toggle LD2
+	  				  HAL_Delay(100);					// Wait 100ms
 	  			  }
-	  			  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);		// LD2 OFF
+	  			  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);	// LD2 OFF
 	  		  }
 
 	  		  while (1)
 	  		  {
-	  			  HAL_SuspendTick();												// Stop Systick timer
-	  			  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);							// RTC timer wake up timer stop
+	  			  HAL_SuspendTick();						// Stop Systick timer
+	  			  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);			// RTC timer wake up timer stop
 	  			  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  			  HAL_PWR_EnterSTANDBYMode();												// Enter Stanby Mode
+	  			  HAL_PWR_EnterSTANDBYMode();					// Enter Stanby Mode
 	  		  }
 	  	  case 9: // Shutdown
 	  		  while (1)
 	  		  {
-	  			  HAL_SuspendTick();												// Stop Systick timer
-	  			  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);							// RTC timer wake up timer stop
+	  			  HAL_SuspendTick();						// Stop Systick timer
+	  			  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);			// RTC timer wake up timer stop
 	  			  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,10,RTC_WAKEUPCLOCK_CK_SPRE_16BITS);	// Set wake up timer with intterupt RTC
-	  			  HAL_PWREx_EnterSHUTDOWNMode();									// Enter Shutdown Mode
+	  			  HAL_PWREx_EnterSHUTDOWNMode();				// Enter Shutdown Mode
 	  		  }
 	  		  break;
 }
