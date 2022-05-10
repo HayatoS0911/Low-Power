@@ -1,0 +1,5 @@
+../Core/Src/main.c:65:5:main	16	static
+../Core/Src/main.c:232:6:SystemClock_Config	96	static
+../Core/Src/main.c:289:6:SystemClock_Config_UseMSI	96	static
+../Core/Src/main.c:346:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:364:6:Error_Handler	4	static,ignoring_inline_asm
